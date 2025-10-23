@@ -1,10 +1,14 @@
-<h2><%= @chatroom.name %></h2>
+<div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
+  <h2 class="text-2xl font-bold text-center text-blue-600 mb-4"><%= @chatroom.name %></h2>
 
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <%= render @chatroom.messages %>
+  <!-- Messages container -->
+  <div id="messages" data-chatroom-id="<%= @chatroom.id %>" class="h-80 overflow-y-auto p-4 bg-gray-100 rounded mb-4 space-y-2">
+    <%= render @chatroom.messages %>
+  </div>
+
+  <!-- Message form -->
+  <%= form_with(model: [@chatroom, @message], data: { turbo_stream: true }, class: "flex gap-2") do |form| %>
+    <%= form.text_field :content, placeholder: "Type message...", class: "flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" %>
+    <%= form.submit "Send", class: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200" %>
+  <% end %>
 </div>
-
-<%= form_with(model: [@chatroom, @message], data: { turbo_stream: true }) do |form| %>
-  <%= form.text_field :content, placeholder: "Type message..." %>
-  <%= form.submit "Send" %>
-<% end %>
