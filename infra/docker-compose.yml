@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: simpul-postgres
+    environment:
+      POSTGRES_USER: simpul
+      POSTGRES_PASSWORD: simpul
+      POSTGRES_DB: simpul-db
+    ports:
+      - "5440:5432"
+    volumes:
+      - simpul_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  simpul_postgres_data:
