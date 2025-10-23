@@ -1,16 +1,16 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = service.all_chatrooms
     @chatroom = Chatroom.new
   end
 
   def show
-    @chatroom = Chatroom.find(params[:id])
+    @chatroom = service.find_chatroom(params[:id])
     @message = Message.new
   end
 
   def create
-    @chatroom = Chatroom.create(chatroom_params)
+    @chatroom = service.create_chatroom(chatroom_params)
     redirect_to @chatroom
   end
 
@@ -18,5 +18,9 @@ class ChatroomsController < ApplicationController
 
   def chatroom_params
     params.require(:chatroom).permit(:name)
+  end
+
+  def service
+    @service ||= ChatroomService.new
   end
 end
