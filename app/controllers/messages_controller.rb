@@ -1,12 +1,16 @@
 class MessagesController < ApplicationController
   def create
-    @chatroom = Chatroom.find(params[:chatroom_id])
-    @message = @chatroom.messages.create(message_params)
+    @message = service.create_message(params[:chatroom_id], message_params)
+    @chatroom = @message.chatroom
   end
 
   private
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def service
+    @service ||= MessageService.new
   end
 end
