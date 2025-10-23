@@ -1,0 +1,10 @@
+<h2><%= @chatroom.name %></h2>
+
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <%= render @chatroom.messages %>
+</div>
+
+<%= form_with(model: [@chatroom, @message], data: { turbo_stream: true }) do |form| %>
+  <%= form.text_field :content, placeholder: "Type message..." %>
+  <%= form.submit "Send" %>
+<% end %>

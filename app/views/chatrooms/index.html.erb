@@ -1,0 +1,12 @@
+<h1>Chatrooms</h1>
+
+<ul>
+  <% @chatrooms.each do |room| %>
+    <li><%= link_to room.name, room %></li>
+  <% end %>
+</ul>
+
+<%= form_with(model: @chatroom, local: true) do |form| %>
+  <%= form.text_field :name, placeholder: "New chatroom name" %>
+  <%= form.submit "Create" %>
+<% end %>
