@@ -1,6 +1,6 @@
 # Rails Chat App
 
-A simple real-time chat application built with **Ruby on Rails 7**, **ActionCable**, **Tailwind CSS**, and **Hotwire/Turbo**.
+A simple real-time chat application built with **Ruby on Rails 8**, **ActionCable**, **Tailwind CSS**, and **Hotwire/Turbo**.
 Includes **service layer architecture**, **unit & integration tests**, and modern styling.
 
 ---
@@ -20,7 +20,7 @@ Includes **service layer architecture**, **unit & integration tests**, and moder
 
 ## 🛠 Technology Stack
 
-* **Backend**: Ruby on Rails 7
+* **Backend**: Ruby on Rails 8
 * **Frontend**: Hotwire / Turbo / Tailwind CSS
 * **Real-time**: ActionCable
 * **Database**: PostgreSQL
